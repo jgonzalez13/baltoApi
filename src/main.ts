@@ -6,6 +6,6 @@ import { ParseIntPipe } from './common/parseInt.pipe';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   app.useGlobalPipes(new ParseIntPipe(), new ValidationPipe());
-  await app.listen(3000);
+  await app.listen(process.env['PORT'] || 3000);
 }
 bootstrap();
